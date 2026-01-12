@@ -13,7 +13,7 @@ app=Flask(__name__)
 def welcome():
     return "<h1>Welcome to the ml model api</h1>"
 
-model=joblib.load("model.pkl")
+model=joblib.load("save_model/model.pkl")
 @app.route("/predict",methods=["POST"])
 def predict():
     data=request.get_json()
@@ -21,7 +21,7 @@ def predict():
     prediction=model.predict(features)
     return jsonify({"prediction:":int(prediction[0])})
 
-model1=joblib.load("model1.pkl")
+model1=joblib.load("save_model/model1.pkl")
 @app.route("/classify",methods=["POST"])
 def classify():
     data=request.get_json()
@@ -29,7 +29,7 @@ def classify():
     classify=model1.predict(features)
     return jsonify({"Classification:":int(classify[0])})
 
-model2=keras.models.load_model("tensor.keras")
+model2=keras.models.load_model("save_model/tensor.keras")
 @app.route("/pred",methods=["POST"])
 def pred():
     file=request.files['image']

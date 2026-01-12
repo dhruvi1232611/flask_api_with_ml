@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import  LogisticRegression
 from sklearn.metrics import accuracy_score
 import joblib
-df=pd.read_csv("titanic_toy.csv")
+df=pd.read_csv("data/titanic_toy.csv")
 print(df.head())
 
 print(df.isnull().sum())
@@ -22,5 +22,5 @@ accuracy=accuracy_score(y_test,pred)*100
 
 print("Accuracy:",accuracy)
 
-joblib.dump(model,"model1.pkl")
+joblib.dump(model, "save_model/model1.pkl")
 print("Model Saved Successfully")
